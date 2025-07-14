@@ -6,7 +6,7 @@ export default async function HomePage({
   children: React.ReactNode
 }) {
   return (
-    <div>
+    <div className="mt-16">
       <Header />
       {children}
     </div>
