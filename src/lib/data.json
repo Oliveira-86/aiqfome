@@ -1,4 +1,8 @@
 {
+  "user": {
+    "id": "1",
+    "address": "Rua Aviador Roberto Marques, 123"
+  },
   "restaurants": [
     {
       "id": "1",

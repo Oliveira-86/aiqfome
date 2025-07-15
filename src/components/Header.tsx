@@ -18,7 +18,7 @@ export const Header: React.FC<Props> = ({ address }) => {
             entregando em
           </p>
           <p className="font-bol text-white d text-base leading-[19px] tracking-normal">
-            Rua Mandaguari, 198
+            {address}
           </p>
         </div>
       </div>

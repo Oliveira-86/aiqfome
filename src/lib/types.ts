@@ -1,3 +1,8 @@
+export interface User {
+  id: string
+  address: string
+}
+
 export interface Food {
   id: string
   name: string
