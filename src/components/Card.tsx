@@ -11,7 +11,7 @@ export const Card: React.FC<Props> = ({ restaurant }) => {
   const router = useRouter()
 
   const handleClick = () => {
-    router.push(`/catalogo/${restaurant.id}`)
+    router.push(`/catalogo/${restaurant.name}`)
   }
 
   return (

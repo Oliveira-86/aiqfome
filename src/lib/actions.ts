@@ -1,5 +1,5 @@
 import productsData from "./data.json"
-import { Restaurant, User } from "./types"
+import { FoodItem, Restaurant, User } from "./types"
 
 interface ProductsData {
   restaurants: Restaurant[]
@@ -8,14 +8,34 @@ interface ProductsData {
 
 const typedProductsData = productsData as ProductsData
 
-export function getUser(): User {
+export const getUser = (): User => {
   return typedProductsData.user
 }
 
-export function getRestaurants(): Restaurant[] {
+export const getRestaurants = (): Restaurant[] => {
   return typedProductsData.restaurants
 }
 
-export function getRestaurantById(id: string): Restaurant | undefined {
-  return typedProductsData.restaurants.find((restaurant) => restaurant.id === id)
+export const getRestaurantByName = (name: string): Restaurant | undefined => {
+  const restaurantNameDecoded = decodeURIComponent(name)
+
+  return typedProductsData.restaurants.find(
+    (restaurant) => restaurant.name === restaurantNameDecoded
+  )
+}
+
+export const getFoodById = (restaurantName: string, foodId: string): FoodItem | undefined => {
+  const restaurantNameDecoded = decodeURIComponent(restaurantName)
+
+  return typedProductsData.restaurants
+    .find((r) => r.name === restaurantNameDecoded)
+    ?.food_list.flatMap((c) => c.items)
+    .find((item) => item.id === foodId)
+}
+
+export const getDrinkById = (restaurantId: string, foodId: string): FoodItem | undefined => {
+  return typedProductsData.restaurants
+    .find((r) => r.id === restaurantId)
+    ?.drink_list.flatMap((c) => c.items)
+    .find((item) => item.id === foodId)
 }
