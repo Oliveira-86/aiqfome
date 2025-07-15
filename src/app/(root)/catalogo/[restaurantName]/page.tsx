@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { getRestaurantByName } from "@/lib/actions"
+import { getRestaurantByName } from "@/data/actions"
 import React from "react"
 
 type Props = { params: {

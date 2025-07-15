@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react'
 
 type Props = {
-    title: string
-    subTitle: string
-    children: ReactNode
-    necessary?: boolean
+  title: string
+  subTitle?: string
+  children: ReactNode
+  necessary?: boolean
 }
 
 export const Box: React.FC<Props> = ({ children, title, subTitle, necessary = false }) => {

@@ -1,4 +1,4 @@
-import { Restaurant } from "@/lib/types"
+import { Restaurant } from "@/data/types"
 import Image from "next/image"
 import React from "react"
 

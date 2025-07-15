@@ -1,5 +1,5 @@
 import { FilterSection } from "@/components/FilterSection"
-import { getRestaurants } from "@/lib/actions"
+import { getRestaurants } from "@/data/actions"
 import Image from "next/image"
 
 export default async function HomePage() {

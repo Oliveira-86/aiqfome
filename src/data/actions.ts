@@ -1,4 +1,4 @@
-import productsData from "./data.json"
+import productsData from "@/data/data.json"
 import { FoodItem, Restaurant, User } from "./types"
 
 interface ProductsData {

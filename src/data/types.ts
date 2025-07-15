@@ -3,23 +3,11 @@ export interface User {
   address: string
 }
 
-export interface Food {
-  id: string
-  name: string
-  description: string
-  price: number
-  size: string
-  image: string
-  accompaniments: string[]
-  category: string
-}
-
 export interface Drink {
   id: string
   name: string
   description: string
   price: number
-  size: string
   image: string
   category: string
 }
@@ -31,7 +19,6 @@ export type FoodItem = {
   name: string
   description: string
   price: number
-  size: string
   image: string
   accompaniments?: Accompaniment[]
 }
@@ -58,6 +45,22 @@ export type Restaurant = {
   drink_list: CategoryItems<Omit<FoodItem, "accompaniments"> & { size: string }>[]
 }
 
+export interface CartItem extends FoodItem {
+  quantity: number
+  restaurant_id: string
+  restaurant_name: string
+  type: "food" | "drink"
+  size?: string | undefined
+  forks?: boolean | undefined
+  accompaniments?: string[]
+  extra?: string[]
+  drinks_list?: CategoryItems<FoodItem>[]
+}
+
+export interface CartState {
+  items: CartItem[]
+  currentRestaurant: Restaurant | null
+}
 
 export interface OrderItem {
   food_id: string
@@ -86,20 +89,4 @@ export interface Order {
   created_at: string
 }
 
-export interface CartItem extends Food {
-  quantity: number
-  restaurant_id: string
-  restaurant_name: string
-  type: "food" | "drink"
-}
 
-export interface CartContextType {
-  items: CartItem[]
-  addItem: (item: Food | Drink, restaurant: Restaurant, type: "food" | "drink") => void
-  removeItem: (itemId: string) => void
-  updateQuantity: (itemId: string, quantity: number) => void
-  clearCart: () => void
-  total: number
-  itemCount: number
-  currentRestaurant: Restaurant | null
-}

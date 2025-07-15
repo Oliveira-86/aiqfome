@@ -1,6 +1,6 @@
 'use client'
 
-import { Restaurant } from "@/lib/types"
+import { Restaurant } from "@/data/types"
 import { useState } from "react"
 import FilterInput from "./FilterInput"
 import { Card } from "./Card"
