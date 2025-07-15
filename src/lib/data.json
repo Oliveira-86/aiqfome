@@ -15,61 +15,79 @@
       "delivery_fee": 4.99,
       "distance": 1.2,
       "free_delivery_minimum": 35.0,
-      "list_food": [
-        {
-          "id": "bk1",
-          "name": "Whopper",
-          "description": "Hambúrguer com carne grelhada, alface, tomate, cebola, picles e maionese",
-          "price": 24.9,
-          "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Batata Frita", "Onion Rings", "Molho Especial", "Picles Extra"]
-        },
-        {
-          "id": "bk2",
-          "name": "Big King",
-          "description": "Dois hambúrgueres, alface, queijo, molho especial e pão com gergelim",
-          "price": 22.9,
-          "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Batata Frita", "Cebola Empanada", "Molho Barbecue"]
-        },
-        {
-          "id": "bk3",
-          "name": "Chicken Crispy",
-          "description": "Frango empanado crocante com alface e maionese",
-          "price": 19.9,
-          "size": "Médio",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Batata Frita", "Molho Barbecue", "Alface Extra"]
-        }
-      ],
-      "list_drinks": [
-        {
-          "id": "bk_drink1",
-          "name": "Coca-Cola",
-          "description": "Refrigerante de cola gelado",
-          "price": 6.9,
-          "size": "500ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        },
-        {
-          "id": "bk_drink2",
-          "name": "Guaraná Antarctica",
-          "description": "Refrigerante de guaraná",
-          "price": 6.9,
-          "size": "500ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        },
-        {
-          "id": "bk_drink3",
-          "name": "Suco de Laranja",
-          "description": "Suco natural de laranja",
-          "price": 8.9,
-          "size": "400ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        }
-      ]
+      "minimum_value": 11.00,
+      "close": "20:00",
+     "food_list": [
+  {
+    "category": "Hambúrgueres",
+    "items": [
+      {
+        "id": "bk1",
+        "name": "Whopper",
+        "description": "Hambúrguer com carne grelhada, alface, tomate, cebola, picles e maionese",
+        "price": 24.9,
+        "size": "Grande",
+        "image": "/placeholder.svg?height=300&width=300",
+        "accompaniments": ["Batata Frita", "Onion Rings", "Molho Especial", "Picles Extra"]
+      },
+      {
+        "id": "bk2",
+        "name": "Big King",
+        "description": "Dois hambúrgueres, alface, queijo, molho especial e pão com gergelim",
+        "price": 22.9,
+        "size": "Grande",
+        "image": "/placeholder.svg?height=300&width=300",
+        "accompaniments": ["Batata Frita", "Cebola Empanada", "Molho Barbecue"]
+      },
+      {
+        "id": "bk3",
+        "name": "Chicken Crispy",
+        "description": "Frango empanado crocante com alface e maionese",
+        "price": 19.9,
+        "size": "Médio",
+        "image": "/placeholder.svg?height=300&width=300",
+        "accompaniments": ["Batata Frita", "Molho Barbecue", "Alface Extra"]
+      }
+    ]
+  }
+],
+"drink_list": [
+  {
+    "category": "Refrigerantes",
+    "items": [
+      {
+        "id": "bk_drink1",
+        "name": "Coca-Cola",
+        "description": "Refrigerante de cola gelado",
+        "price": 6.9,
+        "size": "500ml",
+        "image": "/placeholder.svg?height=300&width=300"
+      },
+      {
+        "id": "bk_drink2",
+        "name": "Guaraná Antarctica",
+        "description": "Refrigerante de guaraná",
+        "price": 6.9,
+        "size": "500ml",
+        "image": "/placeholder.svg?height=300&width=300"
+      }
+    ]
+  },
+  {
+    "category": "Sucos",
+    "items": [
+      {
+        "id": "bk_drink3",
+        "name": "Suco de Laranja",
+        "description": "Suco natural de laranja",
+        "price": 8.9,
+        "size": "400ml",
+        "image": "/placeholder.svg?height=300&width=300"
+      }
+    ]
+  }
+]
+
     },
     {
       "id": "2",
@@ -82,74 +100,118 @@
       "delivery_fee": 3.99,
       "distance": 0.8,
       "free_delivery_minimum": 40.0,
-      "list_food": [
+      "minimum_value": 10.00,
+      "close": "22:00",
+      "food_list": [
         {
-          "id": "mc1",
-          "name": "Big Mac",
-          "description": "Dois hambúrgueres, alface, queijo, molho especial, cebola e picles no pão com gergelim",
-          "price": 26.9,
-          "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Batata Frita", "McNuggets 4un", "Molho Especial"]
+          "category": "Hambúrgueres",
+          "items": [
+            {
+              "id": "mc1",
+              "name": "Big Mac",
+              "description": "Dois hambúrgueres, alface, queijo, molho especial, cebola e picles no pão com gergelim",
+              "price": 26.9,
+              "size": "Grande",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Batata Frita", "McNuggets 4un", "Molho Especial"]
+            },
+            {
+              "id": "mc2",
+              "name": "Quarter Pounder",
+              "description": "Hambúrguer de carne bovina com queijo, cebola, picles e ketchup",
+              "price": 28.9,
+              "size": "Grande",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Batata Frita", "Molho Especial", "Queijo Extra"]
+            },
+            {
+              "id": "mc3",
+              "name": "McChicken",
+              "description": "Frango empanado com alface e maionese no pão com gergelim",
+              "price": 18.9,
+              "size": "Médio",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Batata Frita", "Molho Mostarda", "Alface Extra"]
+            }
+          ]
         },
         {
-          "id": "mc2",
-          "name": "Quarter Pounder",
-          "description": "Hambúrguer de carne bovina com queijo, cebola, picles e ketchup",
-          "price": 28.9,
-          "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Batata Frita", "Molho Especial", "Queijo Extra"]
-        },
-        {
-          "id": "mc3",
-          "name": "McChicken",
-          "description": "Frango empanado com alface e maionese no pão com gergelim",
-          "price": 18.9,
-          "size": "Médio",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Batata Frita", "Molho Mostarda", "Alface Extra"]
+          "category": "Sobremesas",
+          "items": [
+            {
+              "id": "mc_sob1",
+              "name": "Sundae de Chocolate",
+              "description": "Sorvete de baunilha com calda de chocolate",
+              "price": 8.5,
+              "size": "Pequeno",
+              "image": "/placeholder.svg?height=300&width=300"
+            },
+            {
+              "id": "mc_sob2",
+              "name": "McFlurry Oreo",
+              "description": "Sorvete misturado com pedaços de Oreo",
+              "price": 10.9,
+              "size": "Médio",
+              "image": "/placeholder.svg?height=300&width=300"
+            }
+          ]
         }
       ],
-      "list_drinks": [
+      "drink_list": [
         {
-          "id": "mc_drink1",
-          "name": "Coca-Cola",
-          "description": "Refrigerante de cola gelado",
-          "price": 7.5,
-          "size": "500ml",
-          "image": "/placeholder.svg?height=300&width=300"
+          "category": "Refrigerantes",
+          "items": [
+            {
+              "id": "mc_drink1",
+              "name": "Coca-Cola",
+              "description": "Refrigerante de cola gelado",
+              "price": 7.5,
+              "size": "500ml",
+              "image": "/placeholder.svg?height=300&width=300"
+            },
+            {
+              "id": "mc_drink2",
+              "name": "Sprite",
+              "description": "Refrigerante de limão",
+              "price": 7.5,
+              "size": "500ml",
+              "image": "/placeholder.svg?height=300&width=300"
+            }
+          ]
         },
         {
-          "id": "mc_drink2",
-          "name": "Sprite",
-          "description": "Refrigerante de limão",
-          "price": 7.5,
-          "size": "500ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        },
-        {
-          "id": "mc_drink3",
-          "name": "Milkshake Chocolate",
-          "description": "Milkshake cremoso de chocolate",
-          "price": 12.9,
-          "size": "400ml",
-          "image": "/placeholder.svg?height=300&width=300"
+          "category": "Milkshakes",
+          "items": [
+            {
+              "id": "mc_drink3",
+              "name": "Milkshake Chocolate",
+              "description": "Milkshake cremoso de chocolate",
+              "price": 12.9,
+              "size": "400ml",
+              "image": "/placeholder.svg?height=300&width=300"
+            }
+          ]
         }
       ]
+
     },
     {
-      "id": "3",
-      "name": "Subway",
-      "address": "Rua Augusta, 789 - Consolação",
-      "stars": 4.3,
-      "image": "/images/subway.png",
-      "category": "sandwich",
-      "delivery_time": "15-25 min",
-      "delivery_fee": 2.99,
-      "distance": 2.1,
-      "free_delivery_minimum": null,
-      "list_food": [
+  "id": "3",
+  "name": "Subway",
+  "address": "Rua Augusta, 789 - Consolação",
+  "stars": 4.3,
+  "image": "/images/subway.png",
+  "category": "sandwich",
+  "delivery_time": "15-25 min",
+  "delivery_fee": 2.99,
+  "distance": 2.1,
+  "free_delivery_minimum": null,
+  "minimum_value": 20.00,
+  "close": "20:00",
+  "food_list": [
+    {
+      "category": "Sanduíches",
+      "items": [
         {
           "id": "sub1",
           "name": "Italian B.M.T.",
@@ -177,8 +239,34 @@
           "image": "/placeholder.svg?height=300&width=300",
           "accompaniments": ["Cookies", "Batata Chips", "Maionese Extra"]
         }
-      ],
-      "list_drinks": [
+      ]
+    },
+    {
+      "category": "Sobremesas",
+      "items": [
+        {
+          "id": "sub_dessert1",
+          "name": "Cookie Chocolate",
+          "description": "Cookie macio com gotas de chocolate",
+          "price": 5.0,
+          "size": "Unidade",
+          "image": "/placeholder.svg?height=300&width=300"
+        },
+        {
+          "id": "sub_dessert2",
+          "name": "Cookie Doce de Leite",
+          "description": "Cookie recheado com doce de leite cremoso",
+          "price": 5.5,
+          "size": "Unidade",
+          "image": "/placeholder.svg?height=300&width=300"
+        }
+      ]
+    }
+  ],
+  "drink_list": [
+    {
+      "category": "Refrigerantes",
+      "items": [
         {
           "id": "sub_drink1",
           "name": "Pepsi",
@@ -186,7 +274,12 @@
           "price": 6.5,
           "size": "500ml",
           "image": "/placeholder.svg?height=300&width=300"
-        },
+        }
+      ]
+    },
+    {
+      "category": "Sucos",
+      "items": [
         {
           "id": "sub_drink2",
           "name": "Suco Natural Laranja",
@@ -194,7 +287,12 @@
           "price": 9.9,
           "size": "400ml",
           "image": "/placeholder.svg?height=300&width=300"
-        },
+        }
+      ]
+    },
+    {
+      "category": "Águas",
+      "items": [
         {
           "id": "sub_drink3",
           "name": "Água Mineral",
@@ -204,19 +302,26 @@
           "image": "/placeholder.svg?height=300&width=300"
         }
       ]
+    }
+  ]
     },
     {
-      "id": "4",
-      "name": "Pizza Hut",
-      "address": "Rua dos Pinheiros, 321 - Pinheiros",
-      "stars": 4.1,
-      "image": "/images/pizza_hut.png",
-      "category": "pizza",
-      "delivery_time": "30-45 min",
-      "delivery_fee": 5.99,
-      "distance": 3.5,
-      "free_delivery_minimum": 50.0,
-      "list_food": [
+  "id": "4",
+  "name": "Pizza Hut",
+  "address": "Rua dos Pinheiros, 321 - Pinheiros",
+  "stars": 4.1,
+  "image": "/images/pizza_hut.png",
+  "category": "pizza",
+  "delivery_time": "30-45 min",
+  "delivery_fee": 5.99,
+  "distance": 3.5,
+  "free_delivery_minimum": 50.0,
+  "minimum_value": null,
+  "close": "23:00",
+  "food_list": [
+    {
+      "category": "Pizzas",
+      "items": [
         {
           "id": "ph1",
           "name": "Pizza Margherita",
@@ -244,8 +349,13 @@
           "image": "/placeholder.svg?height=300&width=300",
           "accompaniments": ["Borda Recheada", "Orégano", "Azeite Extra"]
         }
-      ],
-      "list_drinks": [
+      ]
+    }
+  ],
+  "drink_list": [
+    {
+      "category": "Refrigerantes",
+      "items": [
         {
           "id": "ph_drink1",
           "name": "Coca-Cola 2L",
@@ -261,7 +371,12 @@
           "price": 12.9,
           "size": "2L",
           "image": "/placeholder.svg?height=300&width=300"
-        },
+        }
+      ]
+    },
+    {
+      "category": "Sucos",
+      "items": [
         {
           "id": "ph_drink3",
           "name": "Suco de Uva",
@@ -271,19 +386,26 @@
           "image": "/placeholder.svg?height=300&width=300"
         }
       ]
+    }
+  ]
     },
     {
-      "id": "5",
-      "name": "KFC",
-      "address": "Shopping Center Norte - Santana",
-      "stars": 4.0,
-      "image": "/images/kfc.png",
-      "category": "chicken",
-      "delivery_time": "25-35 min",
-      "delivery_fee": 4.5,
-      "distance": 4.2,
-      "free_delivery_minimum": 45.0,
-      "list_food": [
+  "id": "5",
+  "name": "KFC",
+  "address": "Shopping Center Norte - Santana",
+  "stars": 4.0,
+  "image": "/images/kfc.png",
+  "category": "chicken",
+  "delivery_time": "25-35 min",
+  "delivery_fee": 4.5,
+  "distance": 4.2,
+  "free_delivery_minimum": 45.0,
+  "minimum_value": null,
+  "close": "00:00",
+  "food_list": [
+    {
+      "category": "Combos e Frangos",
+      "items": [
         {
           "id": "kfc1",
           "name": "Balde 8 Pedaços",
@@ -311,8 +433,13 @@
           "image": "/placeholder.svg?height=300&width=300",
           "accompaniments": ["Molho Ranch", "Molho Barbecue", "Celery"]
         }
-      ],
-      "list_drinks": [
+      ]
+    }
+  ],
+  "drink_list": [
+    {
+      "category": "Bebidas",
+      "items": [
         {
           "id": "kfc_drink1",
           "name": "Pepsi",
@@ -338,19 +465,26 @@
           "image": "/placeholder.svg?height=300&width=300"
         }
       ]
+    }
+  ]
     },
     {
-      "id": "6",
-      "name": "Domino's Pizza",
-      "address": "Rua Consolação, 654 - República",
-      "stars": 4.4,
-      "image": "/images/dominos.png",
-      "category": "pizza",
-      "delivery_time": "25-40 min",
-      "delivery_fee": 4.99,
-      "distance": 2.8,
-      "free_delivery_minimum": 55.0,
-      "list_food": [
+  "id": "6",
+  "name": "Domino's Pizza",
+  "address": "Rua Consolação, 654 - República",
+  "stars": 4.4,
+  "image": "/images/dominos.png",
+  "category": "pizza",
+  "delivery_time": "25-40 min",
+  "delivery_fee": 4.99,
+  "distance": 2.8,
+  "free_delivery_minimum": 55.0,
+  "minimum_value": 5.00,
+  "close": "21:30",
+  "food_list": [
+    {
+      "category": "Pizzas Tradicionais",
+      "items": [
         {
           "id": "dom1",
           "name": "Pizza Calabresa",
@@ -378,8 +512,13 @@
           "image": "/placeholder.svg?height=300&width=300",
           "accompaniments": ["Borda Catupiry", "Pimenta", "Azeitona Extra"]
         }
-      ],
-      "list_drinks": [
+      ]
+    }
+  ],
+  "drink_list": [
+    {
+      "category": "Bebidas",
+      "items": [
         {
           "id": "dom_drink1",
           "name": "Coca-Cola 2L",
@@ -405,19 +544,26 @@
           "image": "/placeholder.svg?height=300&width=300"
         }
       ]
+    }
+  ]
     },
     {
-      "id": "7",
-      "name": "Outback Steakhouse",
-      "address": "Av. Faria Lima, 987 - Itaim Bibi",
-      "stars": 4.6,
-      "image": "/images/outback.png",
-      "category": "steakhouse",
-      "delivery_time": "35-50 min",
-      "delivery_fee": 7.99,
-      "distance": 5.1,
-      "free_delivery_minimum": 80.0,
-      "list_food": [
+    "id": "7",
+    "name": "Outback Steakhouse",
+    "address": "Av. Faria Lima, 987 - Itaim Bibi",
+    "stars": 4.6,
+    "image": "/images/outback.png",
+    "category": "steakhouse",
+    "delivery_time": "35-50 min",
+    "delivery_fee": 7.99,
+    "distance": 5.1,
+    "free_delivery_minimum": 80.0,
+    "minimum_value": 5.00,
+    "close": "20:30",
+    "food_list": [
+    {
+      "category": "Pratos Principais",
+      "items": [
         {
           "id": "out1",
           "name": "Bloomin' Onion",
@@ -445,8 +591,13 @@
           "image": "/placeholder.svg?height=300&width=300",
           "accompaniments": ["Molho Caesar", "Croutons", "Parmesão"]
         }
-      ],
-      "list_drinks": [
+      ]
+    }
+  ],
+  "drink_list": [
+    {
+      "category": "Bebidas",
+      "items": [
         {
           "id": "out_drink1",
           "name": "Limonada Australiana",
@@ -472,6 +623,8 @@
           "image": "/placeholder.svg?height=300&width=300"
         }
       ]
+    }
+  ]
     },
     {
       "id": "8",
@@ -484,7 +637,12 @@
       "delivery_fee": 3.5,
       "distance": 1.8,
       "free_delivery_minimum": 30.0,
-      "list_food": [
+      "minimum_value": 12.50,
+      "close": "19:00",
+      "food_list": [
+    {
+      "category": "Espaguete",
+      "items": [
         {
           "id": "spo1",
           "name": "Spaghetti Carbonara",
@@ -502,7 +660,12 @@
           "size": "Grande",
           "image": "/placeholder.svg?height=300&width=300",
           "accompaniments": ["Queijo Parmesão", "Pimenta", "Manjericão"]
-        },
+        }
+      ]
+    },
+    {
+      "category": "Risottos",
+      "items": [
         {
           "id": "spo3",
           "name": "Risotto de Camarão",
@@ -512,33 +675,54 @@
           "image": "/placeholder.svg?height=300&width=300",
           "accompaniments": ["Queijo Parmesão", "Limão", "Salsinha"]
         }
-      ],
-      "list_drinks": [
-        {
-          "id": "spo_drink1",
-          "name": "Água com Gás San Pellegrino",
-          "description": "Água mineral italiana com gás",
-          "price": 6.9,
-          "size": "500ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        },
-        {
-          "id": "spo_drink2",
-          "name": "Suco de Limão",
-          "description": "Suco natural de limão",
-          "price": 9.9,
-          "size": "400ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        },
-        {
-          "id": "spo_drink3",
-          "name": "Refrigerante Italiana",
-          "description": "Refrigerante sabor limão siciliano",
-          "price": 7.9,
-          "size": "350ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        }
       ]
+    },
+    {
+      "category": "Sobremesas",
+      "items": []
+    }
+  ],
+  "drink_list": [
+      {
+        "category": "Águas",
+        "items": [
+          {
+            "id": "spo_drink1",
+            "name": "Água com Gás San Pellegrino",
+            "description": "Água mineral italiana com gás",
+            "price": 6.9,
+            "size": "500ml",
+            "image": "/placeholder.svg?height=300&width=300"
+          }
+        ]
+      },
+      {
+        "category": "Sucos",
+        "items": [
+          {
+            "id": "spo_drink2",
+            "name": "Suco de Limão",
+            "description": "Suco natural de limão",
+            "price": 9.9,
+            "size": "400ml",
+            "image": "/placeholder.svg?height=300&width=300"
+          }
+        ]
+      },
+      {
+        "category": "Refrigerantes",
+        "items": [
+          {
+            "id": "spo_drink3",
+            "name": "Refrigerante Italiana",
+            "description": "Refrigerante sabor limão siciliano",
+            "price": 7.9,
+            "size": "350ml",
+            "image": "/placeholder.svg?height=300&width=300"
+          }
+        ]
+      }
+    ]
     },
     {
       "id": "9",
@@ -551,7 +735,12 @@
       "delivery_fee": 2.5,
       "distance": 2.3,
       "free_delivery_minimum": null,
-      "list_food": [
+      "minimum_value": 15.00,
+      "close": "18:00",
+      "food_list": [
+    {
+      "category": "Pratos Principais",
+      "items": [
         {
           "id": "hab1",
           "name": "Esfiha de Carne",
@@ -579,8 +768,17 @@
           "image": "/placeholder.svg?height=300&width=300",
           "accompaniments": ["Batata Frita", "Molho de Alho", "Picles"]
         }
-      ],
-      "list_drinks": [
+      ]
+    },
+    {
+      "category": "Sobremesas",
+      "items": []
+    }
+  ],
+  "drink_list": [
+    {
+      "category": "Bebidas",
+      "items": [
         {
           "id": "hab_drink1",
           "name": "Guaraná Antarctica",
@@ -606,7 +804,9 @@
           "image": "/placeholder.svg?height=300&width=300"
         }
       ]
-    },
+    }
+  ]
+},
     {
       "id": "10",
       "name": "Giraffas",
@@ -618,59 +818,75 @@
       "delivery_fee": 4.0,
       "distance": 3.7,
       "free_delivery_minimum": 35.0,
-      "list_food": [
+      "minimum_value": 30.00,
+      "close": "18:30",
+      "food_list": [
         {
-          "id": "gir1",
-          "name": "Mega Steak Burger",
-          "description": "Hambúrguer com bife de carne, queijo, alface e tomate",
-          "price": 26.9,
-          "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Batata Frita", "Molho Especial", "Queijo Extra"]
+          "category": "Pratos Principais",
+          "items": [
+            {
+              "id": "gir1",
+              "name": "Mega Steak Burger",
+              "description": "Hambúrguer com bife de carne, queijo, alface e tomate",
+              "price": 26.9,
+              "size": "Grande",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Batata Frita", "Molho Especial", "Queijo Extra"]
+            },
+            {
+              "id": "gir2",
+              "name": "Frango Grelhado",
+              "description": "Peito de frango grelhado com temperos especiais",
+              "price": 23.9,
+              "size": "Grande",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Arroz", "Feijão", "Salada"]
+            },
+            {
+              "id": "gir3",
+              "name": "Wrap de Frango",
+              "description": "Tortilla com frango, queijo e vegetais",
+              "price": 19.9,
+              "size": "Médio",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Batata Frita", "Molho Ranch", "Salada"]
+            }
+          ]
         },
         {
-          "id": "gir2",
-          "name": "Frango Grelhado",
-          "description": "Peito de frango grelhado com temperos especiais",
-          "price": 23.9,
-          "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Arroz", "Feijão", "Salada"]
-        },
-        {
-          "id": "gir3",
-          "name": "Wrap de Frango",
-          "description": "Tortilla com frango, queijo e vegetais",
-          "price": 19.9,
-          "size": "Médio",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Batata Frita", "Molho Ranch", "Salada"]
+          "category": "Sobremesas",
+          "items": []
         }
       ],
-      "list_drinks": [
+      "drink_list": [
         {
-          "id": "gir_drink1",
-          "name": "Coca-Cola",
-          "description": "Refrigerante de cola gelado",
-          "price": 6.9,
-          "size": "500ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        },
-        {
-          "id": "gir_drink2",
-          "name": "Suco de Acerola",
-          "description": "Suco natural de acerola",
-          "price": 8.9,
-          "size": "400ml",
-          "image": "/placeholder.svg?height=300&width=300"
-        },
-        {
-          "id": "gir_drink3",
-          "name": "Água de Coco",
-          "description": "Água de coco natural",
-          "price": 7.5,
-          "size": "330ml",
-          "image": "/placeholder.svg?height=300&width=300"
+          "category": "Bebidas",
+          "items": [
+            {
+              "id": "gir_drink1",
+              "name": "Coca-Cola",
+              "description": "Refrigerante de cola gelado",
+              "price": 6.9,
+              "size": "500ml",
+              "image": "/placeholder.svg?height=300&width=300"
+            },
+            {
+              "id": "gir_drink2",
+              "name": "Suco de Acerola",
+              "description": "Suco natural de acerola",
+              "price": 8.9,
+              "size": "400ml",
+              "image": "/placeholder.svg?height=300&width=300"
+            },
+            {
+              "id": "gir_drink3",
+              "name": "Água de Coco",
+              "description": "Água de coco natural",
+              "price": 7.5,
+              "size": "330ml",
+              "image": "/placeholder.svg?height=300&width=300"
+            }
+          ]
         }
       ]
     },
@@ -685,36 +901,50 @@
       "delivery_fee": 5.5,
       "distance": 4.8,
       "free_delivery_minimum": 40.0,
-      "list_food": [
+      "minimum_value": null,
+      "close": "00:00",
+      "food_list": [
         {
-          "id": "chi1",
-          "name": "Yakisoba de Carne",
-          "description": "Macarrão oriental com carne e vegetais",
-          "price": 28.9,
-          "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Molho Shoyu", "Gergelim", "Cebolinha"]
+          "category": "Pratos Principais",
+          "items": [
+            {
+              "id": "chi1",
+              "name": "Yakisoba de Carne",
+              "description": "Macarrão oriental com carne e vegetais",
+              "price": 28.9,
+              "size": "Grande",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Molho Shoyu", "Gergelim", "Cebolinha"]
+            },
+            {
+              "id": "chi2",
+              "name": "Frango Xadrez",
+              "description": "Frango em cubos com amendoim e pimentão",
+              "price": 26.9,
+              "size": "Grande",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Arroz Branco", "Molho Agridoce", "Amendoim"]
+            },
+            {
+              "id": "chi3",
+              "name": "Spring Roll",
+              "description": "Rolinho primavera crocante com vegetais",
+              "price": 15.9,
+              "size": "4 unidades",
+              "image": "/placeholder.svg?height=300&width=300",
+              "accompaniments": ["Molho Agridoce", "Molho de Pimenta", "Gergelim"]
+            }
+          ]
         },
         {
-          "id": "chi2",
-          "name": "Frango Xadrez",
-          "description": "Frango em cubos com amendoim e pimentão",
-          "price": 26.9,
-          "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Arroz Branco", "Molho Agridoce", "Amendoim"]
-        },
-        {
-          "id": "chi3",
-          "name": "Spring Roll",
-          "description": "Rolinho primavera crocante com vegetais",
-          "price": 15.9,
-          "size": "4 unidades",
-          "image": "/placeholder.svg?height=300&width=300",
-          "accompaniments": ["Molho Agridoce", "Molho de Pimenta", "Gergelim"]
+          "category": "Sobremesas",
+          "items": []
         }
-      ],
-      "list_drinks": [
+  ],
+  "drink_list": [
+    {
+      "category": "Bebidas",
+      "items": [
         {
           "id": "chi_drink1",
           "name": "Chá Verde",
@@ -741,6 +971,9 @@
         }
       ]
     }
+  ]
+    }
+
   ],
   "categories": [
     {

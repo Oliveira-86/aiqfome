@@ -15,3 +15,7 @@ export function getUser(): User {
 export function getRestaurants(): Restaurant[] {
   return typedProductsData.restaurants
 }
+
+export function getRestaurantById(id: string): Restaurant | undefined {
+  return typedProductsData.restaurants.find((restaurant) => restaurant.id === id)
+}

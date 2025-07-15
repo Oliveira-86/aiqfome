@@ -1,5 +1,6 @@
 import { Restaurant } from "@/lib/types"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import React from "react"
 
 type Props = {
@@ -7,8 +8,17 @@ type Props = {
 }
 
 export const Card: React.FC<Props> = ({ restaurant }) => {
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push(`/catalogo/${restaurant.id}`)
+  }
+
   return (
-    <div className="w-full flex item-center rounded-2xl bg-[#EEF0F5] h-[72px] mb-4">
+    <div
+      onClick={handleClick}
+      className="w-full flex item-center rounded-2xl bg-[#EEF0F5] h-[72px] mb-4 cursor-pointer"
+    >
       <div className="w-[20%] h-full relative">
         <Image
           src={restaurant.image}

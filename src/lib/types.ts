@@ -11,6 +11,7 @@ export interface Food {
   size: string
   image: string
   accompaniments: string[]
+  category: string
 }
 
 export interface Drink {
@@ -20,9 +21,27 @@ export interface Drink {
   price: number
   size: string
   image: string
+  category: string
 }
 
-export interface Restaurant {
+type Accompaniment = string
+
+export type FoodItem = {
+  id: string
+  name: string
+  description: string
+  price: number
+  size: string
+  image: string
+  accompaniments?: Accompaniment[]
+}
+
+export type CategoryItems<T> = {
+  category: string
+  items: T[]
+}
+
+export type Restaurant = {
   id: string
   name: string
   address: string
@@ -32,17 +51,13 @@ export interface Restaurant {
   delivery_time: string
   delivery_fee: number
   distance: number
-  free_delivery_minimum: number | null
-  list_food: Food[]
-  list_drinks: Drink[]
+  free_delivery_minimum: number
+  minimum_value: number | null
+  close: string
+  food_list: CategoryItems<FoodItem>[]
+  drink_list: CategoryItems<Omit<FoodItem, "accompaniments"> & { size: string }>[]
 }
 
-export interface Category {
-  id: string
-  name: string
-  slug: string
-  image: string
-}
 
 export interface OrderItem {
   food_id: string
