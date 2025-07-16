@@ -37,14 +37,15 @@ const ButtonAdd: React.FC<Props> = ({ item }) => {
 
   if (!product) return
 
+  console.log({ items })
   return (
     <div>
-      {items[product?.id] && items[product?.id].quantity > 0 ? (
-        <ButtonQty item={item} />
-      ) : (
+      {!items[product?.id]?.quantity ? (
         <Button onClick={handleClick} className="bg-[#6D6F73] text-white">
           adicionar
         </Button>
+      ) : (
+        <ButtonQty item={item} />
       )}
     </div>
   )

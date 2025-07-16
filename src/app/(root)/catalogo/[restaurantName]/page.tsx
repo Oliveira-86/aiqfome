@@ -41,7 +41,7 @@ const Catalogo: React.FC<Props> = ({ params }) => {
                   <AccordionContent key={food.category}>
                     <AccordionContent key={food.category}>
                       {food.items.map((item) => (
-                        <CardAccordion restaurantName={restaurant.name} food={item} key={item.id} />
+                        <CardAccordion restaurant={restaurant} food={item} key={item.id} />
                       ))}
                     </AccordionContent>
                   </AccordionContent>
@@ -66,7 +66,7 @@ const Catalogo: React.FC<Props> = ({ params }) => {
                   <AccordionContent key={food.category}>
                     <AccordionContent key={food.category}>
                       {food.items.map((item) => (
-                        <CardAccordion restaurantName={restaurant.name} food={item} key={item.id} />
+                        <CardAccordion restaurant={restaurant} food={item} key={item.id} />
                       ))}
                     </AccordionContent>
                   </AccordionContent>

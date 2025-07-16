@@ -1,20 +1,27 @@
 "use client"
 
-import { Product } from "@/lib/feature/product/prodSlice"
+import { Restaurant } from "@/data/types"
+import { removeFromCart } from "@/lib/feature/cart/cartSlice"
+import { addRestaurant, cleanRestaurant, Product } from "@/lib/feature/product/prodSlice"
 import { createProduct } from "@/lib/feature/product/prodSlice"
 import { useRouter } from "next/navigation"
-import React from "react"
+import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 
 type Props = {
   food: Product
-  restaurantName: string
+  restaurant: Restaurant
 }
 
-export const CardAccordion: React.FC<Props> = ({ food, restaurantName }) => {
+export const CardAccordion: React.FC<Props> = ({ food, restaurant }) => {
   const router = useRouter()
 
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(cleanRestaurant())
+    dispatch(removeFromCart(food.id))
+  }, [])
 
   const handleClick = () => {
     dispatch(
@@ -25,9 +32,11 @@ export const CardAccordion: React.FC<Props> = ({ food, restaurantName }) => {
         name: food.name,
         image: food.image,
         size: food.size,
+        imageRestaurant: restaurant.image,
       })
     )
-    router.push(`/catalogo/${restaurantName}/food/${food.id}`)
+    dispatch(addRestaurant(restaurant))
+    router.push(`/catalogo/${restaurant.name}/food/${food.id}`)
   }
 
   return (

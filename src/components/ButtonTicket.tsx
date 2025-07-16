@@ -2,8 +2,7 @@
 
 import React from "react"
 import { Button } from "@/components/ui/button"
-import { useDispatch, useSelector } from "react-redux"
-import { addToCart } from "@/lib/feature/cart/cartSlice"
+import { useSelector } from "react-redux"
 import { useRouter } from "next/navigation"
 import { RootState } from "@/lib/feature/store"
 import { Product } from "@/lib/feature/product/prodSlice"
@@ -19,29 +18,22 @@ export const ButtonTicket: React.FC<Props> = ({ foodItem, restaurantName }) => {
 
   const product = availableProducts.find((prod) => prod.id === foodItem.id)
 
-  const dispatch = useDispatch()
-
   const router = useRouter()
 
   const handleClick = () => {
     if (product) {
-      dispatch(addToCart({ ...product }))
       router.push(`/catalogo/${restaurantName}/food/${foodItem.id}/ticket`)
     }
   }
 
+  const isDisabled =
+    !items[foodItem.id]?.quantity || // falsy (undefined, 0, etc.)
+    !product?.size || // "" ou undefined
+    !product?.accompaniments?.length
+
   return (
     <div className="w-full bg-[#EEF0F5] px-4 pt-6 pb-3">
-      <Button
-        className="bg-[#7B1FA2] w-full"
-        size="lg"
-        onClick={handleClick}
-        disabled={
-          items[foodItem.id]?.quantity === 0 ||
-          product?.size === "" ||
-          product?.accompaniments?.length === 0
-        }
-      >
+      <Button className="bg-[#7B1FA2] w-full" size="lg" onClick={handleClick} disabled={isDisabled}>
         ver ticket
       </Button>
     </div>

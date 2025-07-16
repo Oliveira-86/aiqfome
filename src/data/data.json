@@ -27,7 +27,7 @@
         "description": "Hambúrguer com carne grelhada, alface, tomate, cebola, picles e maionese",
         "price": 24.9,
         "size": "Grande",
-        "image": "/placeholder.svg?height=300&width=300",
+        "image": "/images/whopper.png",
         "accompaniments": ["Batata Frita", "Onion Rings", "Molho Especial", "Picles Extra"]
       },
       {
@@ -36,7 +36,7 @@
         "description": "Dois hambúrgueres, alface, queijo, molho especial e pão com gergelim",
         "price": 22.9,
         "size": "Grande",
-        "image": "/placeholder.svg?height=300&width=300",
+        "image": "/images/whopper.png",
         "accompaniments": ["Batata Frita", "Cebola Empanada", "Molho Barbecue"]
       },
       {
@@ -45,7 +45,7 @@
         "description": "Frango empanado crocante com alface e maionese",
         "price": 19.9,
         "size": "Médio",
-        "image": "/placeholder.svg?height=300&width=300",
+        "image": "/images/whopper.png",
         "accompaniments": ["Batata Frita", "Molho Barbecue", "Alface Extra"]
       }
     ]
@@ -112,7 +112,7 @@
               "description": "Dois hambúrgueres, alface, queijo, molho especial, cebola e picles no pão com gergelim",
               "price": 26.9,
               "size": "Grande",
-              "image": "/placeholder.svg?height=300&width=300",
+              "image": "/images/bigmac.png",
               "accompaniments": ["Batata Frita", "McNuggets 4un", "Molho Especial"]
             },
             {
@@ -121,7 +121,7 @@
               "description": "Hambúrguer de carne bovina com queijo, cebola, picles e ketchup",
               "price": 28.9,
               "size": "Grande",
-              "image": "/placeholder.svg?height=300&width=300",
+              "image": "/images/bigmac.png",
               "accompaniments": ["Batata Frita", "Molho Especial", "Queijo Extra"]
             },
             {
@@ -130,7 +130,7 @@
               "description": "Frango empanado com alface e maionese no pão com gergelim",
               "price": 18.9,
               "size": "Médio",
-              "image": "/placeholder.svg?height=300&width=300",
+              "image": "/images/bigmac.png",
               "accompaniments": ["Batata Frita", "Molho Mostarda", "Alface Extra"]
             }
           ]
@@ -328,7 +328,7 @@
           "description": "Molho de tomate, mussarela, manjericão e azeite",
           "price": 32.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/pizza.jpg",
           "accompaniments": ["Borda Recheada", "Molho Extra", "Orégano"]
         },
         {
@@ -337,7 +337,7 @@
           "description": "Molho de tomate, mussarela e pepperoni",
           "price": 36.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/pizza.jpg",
           "accompaniments": ["Borda Recheada", "Pimenta Calabresa", "Queijo Extra"]
         },
         {
@@ -346,7 +346,7 @@
           "description": "Mussarela, parmesão, gorgonzola e provolone",
           "price": 38.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/pizza.jpg",
           "accompaniments": ["Borda Recheada", "Orégano", "Azeite Extra"]
         }
       ]
@@ -412,7 +412,7 @@
           "description": "8 pedaços de frango crocante com tempero especial",
           "price": 42.9,
           "size": "Família",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/frango.jpeg",
           "accompaniments": ["Batata Frita", "Molho Barbecue", "Biscoito"]
         },
         {
@@ -421,7 +421,7 @@
           "description": "Hambúrguer de frango picante com alface e maionese",
           "price": 24.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/frango.jpeg",
           "accompaniments": ["Batata Frita", "Molho Picante", "Alface Extra"]
         },
         {
@@ -430,7 +430,7 @@
           "description": "6 asinhas de frango picantes",
           "price": 18.9,
           "size": "Médio",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/frango.jpeg",
           "accompaniments": ["Molho Ranch", "Molho Barbecue", "Celery"]
         }
       ]
@@ -491,7 +491,7 @@
           "description": "Molho de tomate, mussarela, calabresa e cebola",
           "price": 34.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/pizza.jpg",
           "accompaniments": ["Borda Catupiry", "Pimenta", "Cebola Extra"]
         },
         {
@@ -500,7 +500,7 @@
           "description": "Molho de tomate, mussarela, frango desfiado e catupiry",
           "price": 37.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/pizza.jpg",
           "accompaniments": ["Borda Catupiry", "Orégano", "Catupiry Extra"]
         },
         {
@@ -509,7 +509,7 @@
           "description": "Presunto, ovos, cebola, azeitona e ervilha",
           "price": 39.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/pizza.jpg",
           "accompaniments": ["Borda Catupiry", "Pimenta", "Azeitona Extra"]
         }
       ]
@@ -570,7 +570,7 @@
           "description": "Cebola empanada gigante com molho especial",
           "price": 32.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/stack.jpg",
           "accompaniments": ["Molho Especial", "Molho Ranch", "Pimenta"]
         },
         {
@@ -579,7 +579,7 @@
           "description": "Costela suína grelhada com molho barbecue",
           "price": 58.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/stack.jpg",
           "accompaniments": ["Batata Assada", "Molho Barbecue", "Salada"]
         },
         {
@@ -588,7 +588,7 @@
           "description": "Salada caesar com frango grelhado",
           "price": 42.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/stack.jpg",
           "accompaniments": ["Molho Caesar", "Croutons", "Parmesão"]
         }
       ]
@@ -649,7 +649,7 @@
           "description": "Massa com bacon, ovos, queijo parmesão e pimenta do reino",
           "price": 24.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/risoto.jpeg",
           "accompaniments": ["Queijo Parmesão", "Pimenta", "Bacon Extra"]
         },
         {
@@ -658,7 +658,7 @@
           "description": "Massa penne com molho de tomate picante",
           "price": 22.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/risoto.jpeg",
           "accompaniments": ["Queijo Parmesão", "Pimenta", "Manjericão"]
         }
       ]
@@ -672,7 +672,7 @@
           "description": "Risotto cremoso com camarões frescos",
           "price": 34.9,
           "size": "Grande",
-          "image": "/placeholder.svg?height=300&width=300",
+          "image": "/images/risoto.jpeg",
           "accompaniments": ["Queijo Parmesão", "Limão", "Salsinha"]
         }
       ]
@@ -830,7 +830,7 @@
               "description": "Hambúrguer com bife de carne, queijo, alface e tomate",
               "price": 26.9,
               "size": "Grande",
-              "image": "/placeholder.svg?height=300&width=300",
+              "image": "/images/stack.jpg",
               "accompaniments": ["Batata Frita", "Molho Especial", "Queijo Extra"]
             },
             {
@@ -839,7 +839,7 @@
               "description": "Peito de frango grelhado com temperos especiais",
               "price": 23.9,
               "size": "Grande",
-              "image": "/placeholder.svg?height=300&width=300",
+              "image": "/images/stack.jpg",
               "accompaniments": ["Arroz", "Feijão", "Salada"]
             },
             {
@@ -848,7 +848,7 @@
               "description": "Tortilla com frango, queijo e vegetais",
               "price": 19.9,
               "size": "Médio",
-              "image": "/placeholder.svg?height=300&width=300",
+              "image": "/images/stack.jpg",
               "accompaniments": ["Batata Frita", "Molho Ranch", "Salada"]
             }
           ]

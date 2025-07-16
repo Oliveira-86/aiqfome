@@ -30,13 +30,7 @@ const CatalogoItem: React.FC<Props> = async ({ params }) => {
   return (
     <section className="">
       <div className="relative w-full h-[195px]">
-        <Image
-          src="/images/ceviche.png"
-          alt="Logo da empresa"
-          fill
-          className="object-cover"
-          priority
-        />
+        <Image src={foodItem.image} alt="Logo da empresa" fill className="object-cover" priority />
       </div>
       <div className=" p-4">
         <p className="font-bold text-xl text-[#393A3C]">{foodItem?.name}</p>

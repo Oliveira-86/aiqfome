@@ -1,3 +1,4 @@
+import { Restaurant } from "@/data/types"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export interface ProductDrink {
@@ -17,24 +18,39 @@ export interface Product {
   drinks?: ProductDrink[]
   accompaniments?: string[]
   extra?: string[]
+  imageRestaurant?: string
 }
 
 interface ProductState {
   availableProducts: Product[]
+  currentRestaurant: Restaurant
 }
 
 const initialState: ProductState = {
   availableProducts: [],
+  currentRestaurant: {
+    id: "",
+    name: "",
+    address: "",
+    stars: 0,
+    image: "",
+    category: "",
+    delivery_time: "",
+    delivery_fee: 0,
+    distance: 0,
+    free_delivery_minimum: 0,
+    minimum_value: null,
+    close: "",
+    food_list: [],
+    drink_list: [],
+  },
 }
 
 const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    setProducts(
-      state,
-      action: PayloadAction<{ products: Product[] }>
-    ) {
+    setProducts(state, action: PayloadAction<{ products: Product[] }>) {
       state.availableProducts = action.payload.products
     },
 
@@ -86,13 +102,32 @@ const productsSlice = createSlice({
       const pid = action.payload
       state.availableProducts = state.availableProducts.filter((p) => p.id !== pid)
     },
+
+    addRestaurant(state, action: PayloadAction<Restaurant>) {
+      state.currentRestaurant = action.payload
+    },
+
+    cleanRestaurant(state) {
+      state.currentRestaurant = {
+        id: "",
+        name: "",
+        address: "",
+        stars: 0,
+        image: "",
+        category: "",
+        delivery_time: "",
+        delivery_fee: 0,
+        distance: 0,
+        free_delivery_minimum: 0,
+        minimum_value: null,
+        close: "",
+        food_list: [],
+        drink_list: [],
+      }
+    },
   },
 })
 
-export const {
-  setProducts,
-  createProduct,
-  updateProduct,
-  deleteProduct,
-} = productsSlice.actions
+export const { setProducts, createProduct, updateProduct, deleteProduct, addRestaurant, cleanRestaurant } =
+  productsSlice.actions
 export default productsSlice.reducer

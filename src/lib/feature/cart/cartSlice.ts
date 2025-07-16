@@ -10,6 +10,7 @@ export interface CartItemType {
   size: string
   accompaniments?: string[]
   extra?: string[]
+  imageRestaurant?: string
 }
 
 export interface CartState {
@@ -46,6 +47,7 @@ const cartSlice = createSlice({
           size: product.size,
           extra: product.extra,
           accompaniments: product.accompaniments,
+          imageRestaurant: product.imageRestaurant,
         }
       }
 
