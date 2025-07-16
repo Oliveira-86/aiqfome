@@ -3,20 +3,39 @@
 import React, { useEffect, useState } from 'react'
 import { RadioGroup, RadioGroupItem } from './ui/radio-group'
 import { Label } from './ui/label'
-import { useCartSelection } from '@/context/cart'
+import { Product, updateProduct } from "@/lib/feature/product/prodSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "@/lib/feature/store"
 
-export const RadioGroupForks = () => {
-  const { selection, setSelection } = useCartSelection()
+type Props = {
+  foodItem: Product
+}
+
+export const RadioGroupForks: React.FC<Props> = ({ foodItem }) => {
   const [selectedForks, setSelectedForks] = useState<string>(
-    selection.forks === false || selection.forks === undefined ? "Não precisa" : "garfo e faca descartável"
+    foodItem.forks ? "garfo e faca descartável" : "Não precisa"
   )
 
+  const { availableProducts } = useSelector((state: RootState) => state.prod)
+
+  const product = availableProducts.find((prod) => prod.id === foodItem.id)
+
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    setSelection((prev) => ({
-      ...prev,
-      forks: selectedForks === "Não precisa" ? false : true,
-    }))
-  }, [selectedForks, setSelection])
+    const forks = selectedForks !== "Não precisa"
+    if (product) {
+      dispatch(
+        updateProduct({
+          pid: product.id,
+          data: {
+            ...product,
+            forks,
+          },
+        })
+      )
+    }
+  }, [selectedForks, dispatch, foodItem])
 
   return (
     <RadioGroup value={selectedForks} onValueChange={setSelectedForks}>

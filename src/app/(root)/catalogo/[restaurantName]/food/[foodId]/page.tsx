@@ -9,6 +9,7 @@ import Image from "next/image"
 import React from "react"
 import { SelectorExtra } from "@/components/SelectorExtra"
 import { ButtonTicket } from "@/components/ButtonTicket"
+import { TotalPrice } from "@/components/TotalPrice"
 
 type Props = {
   params: {
@@ -50,7 +51,7 @@ const CatalogoItem: React.FC<Props> = async ({ params }) => {
           <p className="font-bold text-base text-[#393A3C]">quantos?</p>
           <p className="flex items-baseline font-semibold text-sm text-[#6D6F73] mt-2">
             total
-            <span className="font-bold text-sm text-[#393A3C] ml-2">R$ {foodItem.price}</span>
+            <TotalPrice foodItem={foodItem} />
           </p>
         </div>
         <ButtonAdd item={foodItem} restaurant={restaurant} />
@@ -58,7 +59,7 @@ const CatalogoItem: React.FC<Props> = async ({ params }) => {
       <div className="h-1 bg-gray-100" />
       <div className="p-4">
         <Box title="qual o tamanho?" subTitle="escolha 1" necessary>
-          <RadioGroupSize />
+          <RadioGroupSize item={foodItem} />
         </Box>
       </div>
       <div className="h-1 bg-gray-100" />
@@ -70,19 +71,19 @@ const CatalogoItem: React.FC<Props> = async ({ params }) => {
       <div className="h-1 bg-gray-100" />
       <div className="p-4">
         <Box title="vai querer bebida?" subTitle="escolha quanto quiser">
-          <AddDrinks restaurant={restaurant} />
+          <AddDrinks restaurant={restaurant} foodItem={foodItem} />
         </Box>
       </div>
       <div className="h-1 bg-gray-100" />
       <div className="p-4">
         <Box title="precisa de talher?">
-          <RadioGroupForks />
+          <RadioGroupForks foodItem={foodItem} />
         </Box>
       </div>
       <div className="h-1 bg-gray-100" />
       <div className="p-4">
         <Box title="mais alguma coisa?" subTitle="escolha até 2">
-          <SelectorExtra />
+          <SelectorExtra foodItem={foodItem} />
         </Box>
       </div>
       <div className="h-1 bg-gray-100" />

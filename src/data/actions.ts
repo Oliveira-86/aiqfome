@@ -1,5 +1,6 @@
 import productsData from "@/data/data.json"
-import { FoodItem, Restaurant, User } from "./types"
+import { Restaurant, User } from "./types"
+import { Product } from "@/lib/feature/product/prodSlice"
 
 interface ProductsData {
   restaurants: Restaurant[]
@@ -24,7 +25,7 @@ export const getRestaurantByName = (name: string): Restaurant | undefined => {
   )
 }
 
-export const getFoodById = (restaurantName: string, foodId: string): FoodItem | undefined => {
+export const getFoodById = (restaurantName: string, foodId: string): Product | undefined => {
   const restaurantNameDecoded = decodeURIComponent(restaurantName)
 
   return typedProductsData.restaurants
@@ -33,7 +34,7 @@ export const getFoodById = (restaurantName: string, foodId: string): FoodItem | 
     .find((item) => item.id === foodId)
 }
 
-export const getDrinkById = (restaurantId: string, foodId: string): FoodItem | undefined => {
+export const getDrinkById = (restaurantId: string, foodId: string): Product | undefined => {
   return typedProductsData.restaurants
     .find((r) => r.id === restaurantId)
     ?.drink_list.flatMap((c) => c.items)

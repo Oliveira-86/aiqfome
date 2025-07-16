@@ -2,70 +2,47 @@
 
 import React from "react"
 import { Button } from "@/components/ui/button"
-import { useCartSelection } from "@/context/cart"
-import { useDispatch } from "react-redux"
-import { addItem } from "@/lib/feature/cart/cartSlice"
-import { FoodItem, Restaurant, CategoryItems } from "@/data/types"
+import { useDispatch, useSelector } from "react-redux"
+import { addToCart } from "@/lib/feature/cart/cartSlice"
+import { Restaurant } from "@/data/types"
+import { useRouter } from "next/navigation"
+import { RootState } from "@/lib/feature/store"
+import { Product } from "@/lib/feature/product/prodSlice"
 
 type Props = {
-  foodItem: FoodItem
+  foodItem: Product
   restaurant: Restaurant
 }
 
-export const ButtonTicket: React.FC<Props> = ({ foodItem, restaurant }) => {
-  const { selection } = useCartSelection()
+export const ButtonTicket: React.FC<Props> = ({ foodItem }) => {
+  const { availableProducts } = useSelector((state: RootState) => state.prod)
+  const { items } = useSelector((state: RootState) => state.cart)
+
+  const product = availableProducts.find((prod) => prod.id === foodItem.id)
+
   const dispatch = useDispatch()
 
+  const router = useRouter()
+
   const handleClick = () => {
-    const isDrink = !!selection.drinks
-
-    // Constrói drinks_list a partir do selection.drinks
-    let drinks_list: CategoryItems<FoodItem>[] | undefined = undefined
-
-    if (isDrink && selection.drinks) {
-
-      const drinksMap = selection.drinks
-
-      const allDrinks: FoodItem[] = restaurant.drink_list.flatMap(
-        (cat: CategoryItems<FoodItem>) => cat.items
-      )
-
-      // Filtra apenas os drinks selecionados com suas quantidades
-      const selectedDrinks: FoodItem[] = Object.entries(drinksMap)
-        .map(([drinkId, qty]) => {
-          const drink = allDrinks.find((d) => d.id === drinkId)
-          if (!drink) return null
-          return Array(qty).fill(drink)
-        })
-        .flat()
-        .filter(Boolean) as FoodItem[]
-
-      drinks_list = [
-        {
-          category: "Bebidas Selecionadas",
-          items: selectedDrinks,
-        },
-      ]
+    if (product) {
+      dispatch(addToCart({ ...product }))
+      router.push(`/ticket`)
     }
-
-    dispatch(
-      addItem({
-        ...foodItem,
-        restaurant: restaurant,
-        type: isDrink ? "drink" : "food",
-        item: foodItem,
-        drinks_list,
-        size: selection.size,
-        forks: selection.forks,
-        accompaniments: selection.accompaniments,
-        extra: selection.extra,
-      })
-    )
   }
 
   return (
     <div className="w-full bg-[#EEF0F5] px-4 pt-6 pb-3">
-      <Button className="bg-[#7B1FA2] w-full" size="lg" onClick={handleClick}>
+      <Button
+        className="bg-[#7B1FA2] w-full"
+        size="lg"
+        onClick={handleClick}
+        disabled={
+          items[foodItem.id]?.quantity === 0 ||
+          product?.size === "" ||
+          product?.accompaniments?.length === 0
+        }
+      >
         ver ticket
       </Button>
     </div>

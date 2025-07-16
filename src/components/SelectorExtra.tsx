@@ -3,27 +3,39 @@
 import React, { useState, useEffect } from "react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
-import { useCartSelection } from "@/context/cart"
+import { Product, updateProduct } from "@/lib/feature/product/prodSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "@/lib/feature/store"
 
+type Props = {
+  foodItem: Product
+}
 
-export const SelectorExtra = () => {
-  const { selection, setSelection } = useCartSelection()
-  
-  const [selected, setSelected] = useState<string[]>(selection.extra ?? [])
+export const SelectorExtra: React.FC<Props> = ({ foodItem }) => {
+  const [selected, setSelected] = useState<string[]>([])
+
+  const { availableProducts } = useSelector((state: RootState) => state.prod)
+
+  const product = availableProducts.find((prod) => prod.id === foodItem.id)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    setSelection((prev) => ({
-      ...prev,
-      extra: selected,
-    }))
-  }, [selected, setSelection])
+    if (product) {
+      dispatch(
+        updateProduct({
+          pid: foodItem.id,
+          data: {
+            ...product,
+            extra: selected,
+          },
+        })
+      )
+    }
+  }, [selected])
 
   const toggleAcc = (acc: string) => {
-    setSelected((prev) =>
-      prev.includes(acc)
-        ? prev.filter((a) => a !== acc)
-        : [...prev, acc]
-    )
+    setSelected((prev) => (prev.includes(acc) ? prev.filter((a) => a !== acc) : [...prev, acc]))
   }
 
   return (

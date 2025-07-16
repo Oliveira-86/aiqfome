@@ -1,15 +1,56 @@
 "use client"
 
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Restaurant } from "@/data/types"
-import { useCartSelection } from "@/context/cart"
+import { useDispatch, useSelector } from "react-redux"
+import { Product, ProductDrink, updateProduct } from "@/lib/feature/product/prodSlice"
+import { RootState } from "@/lib/feature/store"
 
 type Props = {
   restaurant: Restaurant
+  foodItem: Product
 }
 
-export const AddDrinks: React.FC<Props> = ({ restaurant }) => {
-  const { selection, setSelection } = useCartSelection()
+type SelectionState = {
+  drinks: Record<string, number>
+}
+
+export const AddDrinks: React.FC<Props> = ({ restaurant, foodItem }) => {
+  const [selection, setSelection] = useState<SelectionState>({ drinks: {} })
+
+  const dispatch = useDispatch()
+
+  const { availableProducts } = useSelector((state: RootState) => state.prod)
+
+  const product = availableProducts.find((prod) => prod.id === foodItem.id)
+
+  useEffect(() => {
+    if (product) {
+      const drinks: ProductDrink[] = Object.entries(selection.drinks)
+        .map(([id, quantity]) => {
+          const drink = restaurant.drink_list.flatMap((c) => c.items).find((d) => d.id === id)
+
+          if (!drink) return null
+
+          return {
+            id: drink.id,
+            title: drink.name,
+            price: drink.price * quantity,
+          }
+        })
+        .filter(Boolean) as ProductDrink[]
+
+      dispatch(
+        updateProduct({
+          pid: product.id,
+          data: {
+            ...product,
+            drinks,
+          },
+        })
+      )
+    }
+  }, [selection])
 
   const handleAddDrink = (drinkId: string) => {
     setSelection((prev) => ({
@@ -23,8 +64,6 @@ export const AddDrinks: React.FC<Props> = ({ restaurant }) => {
 
   const handleRemoveDrink = (drinkId: string) => {
     setSelection((prev) => {
-      if (!prev.drinks) return prev
-
       const currentQty = prev.drinks[drinkId] ?? 0
       if (currentQty <= 1) {
         const newDrinks = { ...prev.drinks }
@@ -75,11 +114,12 @@ export const AddDrinks: React.FC<Props> = ({ restaurant }) => {
                 <p className="font-semibold text-sm text-[#6D6F73]">{d.name}</p>
               </div>
 
-              <p className="font-bold text-sm text-[#7B1FA2]">+R$ {d.price}</p>
+              <p className="font-bold text-sm text-[#7B1FA2]">
+                +R$ {quantity > 0 ? (d.price * quantity).toFixed(2) : d.price.toFixed(2)}
+              </p>
             </div>
           )
         })}
     </div>
   )
 }
-

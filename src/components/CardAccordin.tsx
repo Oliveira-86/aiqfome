@@ -1,18 +1,32 @@
 "use client"
 
-import { FoodItem } from "@/data/types"
+import { Product } from "@/lib/feature/product/prodSlice"
+import { createProduct } from "@/lib/feature/product/prodSlice"
 import { useRouter } from "next/navigation"
 import React from "react"
+import { useDispatch } from "react-redux"
 
 type Props = {
-  food: FoodItem
+  food: Product
   restaurantName: string
 }
 
 export const CardAccordion: React.FC<Props> = ({ food, restaurantName }) => {
   const router = useRouter()
 
+  const dispatch = useDispatch()
+
   const handleClick = () => {
+    dispatch(
+      createProduct({
+        id: food.id,
+        price: food.price,
+        description: food.description,
+        name: food.name,
+        image: food.image,
+        size: food.size,
+      })
+    )
     router.push(`/catalogo/${restaurantName}/food/${food.id}`)
   }
 

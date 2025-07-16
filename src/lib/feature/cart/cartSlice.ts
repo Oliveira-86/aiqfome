@@ -1,82 +1,89 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { CartState, CategoryItems } from "@/data/types"
-import { FoodItem, Drink, Restaurant } from "@/data/types"
+import { Product } from "../product/prodSlice"
 
-export type PayloadType  = { 
-  item: FoodItem | Drink; 
-  restaurant: Restaurant; 
-  type: "food" | "drink",  
-  size?: string, 
-  forks?: boolean, 
-  accompaniments?: string[] 
-  extra?: string[] 
-  drinks_list?: CategoryItems<FoodItem>[]
+export interface CartItemType {
+  quantity: number
+  productPrice: number
+  productTitle: string
+  sum: number
+  forks?: boolean
+  size: string
+  accompaniments?: string[]
+  extra?: string[]
+}
+
+export interface CartState {
+  items: Record<string, CartItemType>
+  totalAmount: number
 }
 
 const initialState: CartState = {
-  items: [],
-  currentRestaurant: null,
+  items: {},
+  totalAmount: 0,
 }
 
-export const cartSlice = createSlice({
+const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem: (
-      state,
-      action: PayloadAction<PayloadType>
-    ) => {
-      const { item, restaurant, type, size, accompaniments, forks, extra, drinks_list } = action.payload
-      const exists = state.items.find((i) =>
-        i.id === item.id &&
-        i.size === size &&
-        i.forks === forks &&
-        JSON.stringify(i.accompaniments ?? []) === JSON.stringify(accompaniments ?? []) &&
-        JSON.stringify(i.extra ?? []) === JSON.stringify(extra ?? []) &&
-        JSON.stringify(i.drinks_list ?? []) === JSON.stringify(drinks_list ?? [])     
-      )
-      
-      if (exists) {
-        exists.quantity += 1
+    addToCart(state, action: PayloadAction<Product>) {
+      const product = action.payload
+      const existingItem = state.items[product.id]
+
+      const drinksTotal = (product.drinks ?? []).reduce((acc, drink) => acc + drink.price, 0)
+      const totalProductPrice = product.price + drinksTotal
+
+      if (existingItem) {
+        existingItem.quantity += 1
+        existingItem.sum += totalProductPrice
       } else {
-        state.items.push({
-          ...item,
+        state.items[product.id] = {
           quantity: 1,
-          restaurant_id: restaurant.id,
-          restaurant_name: restaurant.name,
-          type,
-          size,
-          forks,
-          accompaniments,
-          drinks_list,
-          extra
-        })
+          productPrice: product.price,
+          productTitle: product.name,
+          sum: totalProductPrice,
+          forks: product.forks,
+          size: product.size,
+          extra: product.extra,
+          accompaniments: product.accompaniments,
+        }
       }
 
-      state.currentRestaurant = restaurant
+      state.totalAmount += totalProductPrice
     },
 
-    removeItem: (state, action: PayloadAction<string>) => {
-      state.items = state.items.filter((item) => item.id !== action.payload)
-      if (state.items.length === 0) state.currentRestaurant = null
-    },
+    removeFromCart(state, action: PayloadAction<string>) {
+      const prodId = action.payload
+      const existingItem = state.items[prodId]
 
-    updateQuantity: (
-      state,
-      action: PayloadAction<{ itemId: string; quantity: number }>
-    ) => {
-      const item = state.items.find((i) => i.id === action.payload.itemId)
-      if (item) {
-        item.quantity = action.payload.quantity
+      if (!existingItem) return
+
+      if (existingItem.quantity > 1) {
+        existingItem.quantity -= 1
+        existingItem.sum -= existingItem.productPrice
+      } else {
+        delete state.items[prodId]
       }
+
+      state.totalAmount -= existingItem.productPrice
     },
 
-    clearCart: (state) => {
-      state.items = []
-      state.currentRestaurant = null
+    addOrder(state) {
+      state.items = {}
+      state.totalAmount = 0
+    },
+
+    deleteProduct(state, action: PayloadAction<string>) {
+      const pid = action.payload
+
+      if (!state.items[pid]) return
+
+      const itemTotal = state.items[pid].sum
+      delete state.items[pid]
+      state.totalAmount -= itemTotal
     },
   },
 })
 
-export const { addItem, removeItem, updateQuantity, clearCart } = cartSlice.actions
+export const { addToCart, removeFromCart, addOrder, deleteProduct } = cartSlice.actions
 export default cartSlice.reducer

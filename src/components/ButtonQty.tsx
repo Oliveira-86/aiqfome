@@ -2,47 +2,45 @@
 
 import React from "react"
 import Image from "next/image"
-import { useCartSelection } from "@/context/cart"
+import { useDispatch, useSelector } from "react-redux"
+import { addToCart, removeFromCart } from "@/lib/feature/cart/cartSlice"
+import { RootState } from "@/lib/feature/store"
+import { Product } from "@/lib/feature/product/prodSlice"
 
 type Props = {
-  itemId: string
-  clickState: () => void
+  item: Product
 }
 
-export const ButtonQty: React.FC<Props> = ({ clickState }) => {
-  const { selection, setSelection } = useCartSelection()
-  const quantity = selection.quantity || 0
+export const ButtonQty: React.FC<Props> = ({ item }) => {
+  const { items } = useSelector((state: RootState) => state.cart)
+
+  const dispatch = useDispatch()
 
   const handleIncrement = () => {
-    setSelection((prev) => ({
-      ...prev,
-      quantity: (prev.quantity || 0) + 1,
-    }))
+    dispatch(
+      addToCart({
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        price: item.price,
+        size: item.size,
+        image: item.image,
+      })
+    )
   }
 
   const handleDecrement = () => {
-    if (quantity > 1) {
-      setSelection((prev) => ({
-        ...prev,
-        quantity: quantity - 1,
-      }))
-    } else if (quantity === 1) {
-      setSelection((prev) => ({
-        ...prev,
-        quantity: 0,
-      }))
-      clickState()
-    }
+    dispatch(removeFromCart(item.id))
   }
 
   return (
     <div className="flex flex-row items-center justify-end gap-3">
-      {quantity === 1 ? (
-        <Image 
-          src='/icons/trash.svg'
+      {items[item.id]?.quantity === 1 ? (
+        <Image
+          src="/icons/trash.svg"
           width={20}
           height={20}
-          alt='trash icon'
+          alt="trash icon"
           onClick={handleDecrement}
           className="mr-2.5 cursor-pointer"
         />
@@ -55,7 +53,7 @@ export const ButtonQty: React.FC<Props> = ({ clickState }) => {
         </div>
       )}
 
-      <p className="font-bold text-sm text-[#393A3C] mr-2">{quantity}</p>
+      <p className="font-bold text-sm text-[#393A3C] mr-2">{items[item.id].quantity}</p>
 
       <div
         onClick={handleIncrement}
