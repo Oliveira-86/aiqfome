@@ -68,11 +68,6 @@ const cartSlice = createSlice({
       state.totalAmount -= existingItem.productPrice
     },
 
-    addOrder(state) {
-      state.items = {}
-      state.totalAmount = 0
-    },
-
     deleteProduct(state, action: PayloadAction<string>) {
       const pid = action.payload
 
@@ -85,5 +80,5 @@ const cartSlice = createSlice({
   },
 })
 
-export const { addToCart, removeFromCart, addOrder, deleteProduct } = cartSlice.actions
+export const { addToCart, removeFromCart, deleteProduct } = cartSlice.actions
 export default cartSlice.reducer

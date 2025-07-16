@@ -4,17 +4,16 @@ import React from "react"
 import { Button } from "@/components/ui/button"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "@/lib/feature/cart/cartSlice"
-import { Restaurant } from "@/data/types"
 import { useRouter } from "next/navigation"
 import { RootState } from "@/lib/feature/store"
 import { Product } from "@/lib/feature/product/prodSlice"
 
 type Props = {
   foodItem: Product
-  restaurant: Restaurant
+  restaurantName: string
 }
 
-export const ButtonTicket: React.FC<Props> = ({ foodItem }) => {
+export const ButtonTicket: React.FC<Props> = ({ foodItem, restaurantName }) => {
   const { availableProducts } = useSelector((state: RootState) => state.prod)
   const { items } = useSelector((state: RootState) => state.cart)
 
@@ -27,7 +26,7 @@ export const ButtonTicket: React.FC<Props> = ({ foodItem }) => {
   const handleClick = () => {
     if (product) {
       dispatch(addToCart({ ...product }))
-      router.push(`/ticket`)
+      router.push(`/catalogo/${restaurantName}/food/${foodItem.id}/ticket`)
     }
   }
 

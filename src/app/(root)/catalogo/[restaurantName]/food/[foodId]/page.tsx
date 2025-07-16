@@ -98,7 +98,7 @@ const CatalogoItem: React.FC<Props> = async ({ params }) => {
         </div>
       </div>
 
-      <ButtonTicket foodItem={foodItem} restaurant={restaurant} />
+      <ButtonTicket foodItem={foodItem} restaurantName={restaurantName} />
     </section>
   )
 }
